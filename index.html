@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linyv工作室 - 招贤纳士</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s ease;
+            }
+            .section-padding {
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+            .card-hover {
+                @apply hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark antialiased">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <i class="fa fa-cubes mr-2"></i>
+                <span>Linyv工作室</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="font-medium hover:text-primary transition-custom">关于我们</a>
+                <a href="#requirements" class="font-medium hover:text-primary transition-custom">招聘要求</a>
+                <a href="#services" class="font-medium hover:text-primary transition-custom">主营业务</a>
+                <a href="#future" class="font-medium hover:text-primary transition-custom">发展前景</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-custom">联系我们</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-dark text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#about" class="py-2 font-medium hover:text-primary transition-custom">关于我们</a>
+                <a href="#requirements" class="py-2 font-medium hover:text-primary transition-custom">招聘要求</a>
+                <a href="#services" class="py-2 font-medium hover:text-primary transition-custom">主营业务</a>
+                <a href="#future" class="py-2 font-medium hover:text-primary transition-custom">发展前景</a>
+                <a href="#contact" class="py-2 font-medium hover:text-primary transition-custom">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-blue-50 to-emerald-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-shadow mb-6">
+                        Linyv工作室<br>
+                        <span class="text-primary">招贤纳士</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
+                        汇聚同频者，共探技术边界，一起创造有价值的产品与项目
+                    </p>
+                    <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-custom">
+                        加入我们 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30"></div>
+                        <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=1" alt="工作室团队合作场景" class="w-full h-auto">
+                            <div class="p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                                <p class="font-medium">创新 · 协作 · 成长</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于我们 -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">关于我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-blue-50 rounded-xl p-8 shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">前言</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Linyv工作室成立的初衷是为了聚集一群有相同志向和兴趣的伙伴，共同探索技术的无限可能。我们相信，通过协作与分享，能够创造出更有价值的软硬件产品和项目。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        无论你是经验丰富的开发者，还是对技术充满热情的初学者，只要你有想法、有毅力、愿意学习，我们都欢迎你的加入。在这里，我们共同成长，一起将创意变为现实。
+                    </p>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-lightbulb-o text-primary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">创新精神</h4>
+                        <p class="text-gray-600">鼓励大胆尝试，勇于挑战传统，探索新技术与新方法</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-users text-secondary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">团队协作</h4>
+                        <p class="text-gray-600">相信团队的力量，通过协作解决问题，共同完成目标</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-book text-purple-500 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">持续学习</h4>
+                        <p class="text-gray-600">保持学习的热情，不断提升自我，紧跟技术发展潮流</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招聘要求 -->
+    <section id="requirements" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">我们的用人要求</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">我们寻找的是有潜力、有热情的伙伴，以下是我们的基本要求</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-8">
+                        <ul class="space-y-6">
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-laptop text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">具备计算机基础知识</h4>
+                                    <p class="text-gray-600">掌握基本办公软件操作，具备良好的软件使用能力，对计算机原理有基本了解</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-code-fork text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">认同开源与互联网精神</h4>
+                                    <p class="text-gray-600">理解并认同开源文化，乐于分享知识与经验，具备互联网思维</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-handshake-o text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">具备团队合作精神</h4>
+                                    <p class="text-gray-600">善于沟通，能够与团队成员有效协作，共同完成项目目标</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-star text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">拥有个人闪光点</h4>
+                                    <p class="text-gray-600">在某一领域有自己的专长或独特见解，能够为团队带来新的思路和价值</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 border-t border-blue-100">
+                        <p class="text-gray-700">
+                            <i class="fa fa-info-circle text-primary mr-2"></i>
+                            我们重视潜力和学习能力，如果你对技术充满热情，愿意不断学习和成长，即使暂时没有太多经验，也欢迎加入我们！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主营业务 -->
+    <section id="services" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">我们的主营业务</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">我们专注于以下领域的开发与研究，不断探索技术的边界</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-5">
+                        <i class="fa fa-mobile text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">电子产品设计</h3>
+                    <p class="text-gray-600 text-sm">设计开发各类智能硬件、嵌入式系统及电子周边产品</p>
+                </div>
+                
+                <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-5">
+                        <i class="fa fa-code text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">软件开发</h3>
+                    <p class="text-gray-600 text-sm">开发桌面应用、移动应用及各类工具软件，解决实际问题</p>
+                </div>
+                
+                <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-5">
+                        <i class="fa fa-microchip text-2xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">硬件开发</h3>
+                    <p class="text-gray-600 text-sm">从事电路板设计、硬件调试与测试，实现硬件功能需求</p>
+                </div>
+                
+                <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-amber-100 rounded-lg flex items-center justify-center mb-5">
+                        <i class="fa fa-cogs text-2xl text-amber-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">系统开发</h3>
+                    <p class="text-gray-600 text-sm">开发各类专用系统，整合软硬件资源，提供完整解决方案</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 max-w-3xl mx-auto bg-gray-50 rounded-xl p-6">
+                <p class="text-gray-700 text-center">
+                    <i class="fa fa-lightbulb-o text-yellow-500 mr-2"></i>
+                    我们也欢迎成员提出新的项目想法，共同探讨可行性并付诸实践
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展前景 -->
+    <section id="future" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">发展前景</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-10">
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-6 text-primary flex items-center">
+                            <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3">1</span>
+                            前期阶段（3年内）
+                        </h3>
+                        
+                        <ul class="space-y-4 pl-11">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>以学习和积累经验为主要目标，不追求短期营利</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>专注于开源项目的开发与贡献，建立技术影响力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>团队规模控制在2-4人，保持高效协作</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>完成2-3个核心项目，验证技术能力和市场需求</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-6 text-primary flex items-center">
+                            <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center mr-3">2</span>
+                            长期规划（3年后）
+                        </h3>
+                        
+                        <ul class="space-y-4 pl-11">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>根据前期项目表现，启动融资计划，扩大团队规模</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>将成熟项目商业化，实现可持续发展</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>建立稳定的客户群体和合作伙伴关系</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>为团队成员提供有竞争力的薪酬和发展空间</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">如果你对我们的工作室感兴趣，欢迎通过以下方式联系我们</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <div class="bg-gray-50 rounded-xl p-8 h-full">
+                            <h3 class="text-xl font-semibold mb-6">联系方式</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-envelope text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">邮箱</h4>
+                                        <p class="text-gray-600">yzgyooowx5542@163.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-weixin text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">微信</h4>
+                                        <p class="text-gray-600">zjy_202191</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-github text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">GitHub</h4>
+                                        <p class="text-gray-600">GitHub.com/zjy-202191</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-code-fork text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">Gitee</h4>
+                                        <p class="text-gray-600">gitee.com/202191</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-200">
+                                <h4 class="font-medium mb-3">加入须知</h4>
+                                <p class="text-gray-600 text-sm">
+                                    有意加入者请发送个人简介至上述邮箱，简介中请注明你的技能特长、兴趣方向以及可以投入的时间。我们会在3个工作日内回复你。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm">
+                            <h3 class="text-xl font-semibold mb-6">发送消息</h3>
+                            
+                            <form id="contactForm" class="space-y-5">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" placeholder="请输入你的姓名" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" placeholder="请输入你的邮箱" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" placeholder="请输入你想告诉我们的内容..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg shadow hover:shadow-md transition-custom">
+                                    发送消息 <i class="fa fa-paper-plane ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold flex items-center">
+                        <i class="fa fa-cubes mr-2"></i>
+                        <span>Linyv工作室</span>
+                    </a>
+                    <p class="mt-2 text-gray-400">汇聚同频者，共探技术边界</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/zjy-202191" target="_blank" class="text-gray-400 hover:text-white transition-custom">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-custom">
+                        <i class="fa fa-weixin text-xl"></i>
+                    </a>
+                    <a href="mailto:yzgyooowx5542@163.com" class="text-gray-400 hover:text-white transition-custom">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 Linyv工作室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 表单提交处理
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 模拟表单提交
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 发送中...';
+            
+            setTimeout(() => {
+                // 重置表单
+                contactForm.reset();
+                
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 发送成功';
+                
+                // 恢复按钮文本
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
+    
